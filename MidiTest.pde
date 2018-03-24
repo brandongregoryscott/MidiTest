@@ -14,10 +14,11 @@ final static int KEYBOARD_DEVICE_NUMBER = 1;
 boolean[] keyDown = new boolean[222];
 boolean[] midiKeyDown = new boolean[120];
 int[] midiKeyWeight = new int[120];
+int cmd = 0, d1 = 0, d2 = 0;
 
 public void setup() {
   // Create the canvas
-  size(50, 50);
+  size(450, 400);
 
   midiDeviceInfo = MidiSystem.getMidiDeviceInfo();
   for (int i = 0; i < midiDeviceInfo.length; i++) {
@@ -36,4 +37,13 @@ public void setup() {
   catch(MidiUnavailableException ex) {
     System.err.println("MIDI UNAVAILABLE");
   }
+}
+
+public void draw() {
+  background(0);
+  fill(255);
+  textSize(75);
+  text("cmd:" + cmd, 10, 100);
+  text("note:" + d1, 10, 200);
+  text("velocity:" + d2, 10, 300);
 }

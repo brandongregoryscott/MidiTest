@@ -19,9 +19,9 @@ class MidiReceiver implements Receiver {
     if (message instanceof ShortMessage)
     {
       ShortMessage shortMsg = (ShortMessage) message;
-      int cmd = shortMsg.getCommand();
-      int d1 = shortMsg.getData1();
-      int d2 = shortMsg.getData2();
+      cmd = shortMsg.getCommand();
+      d1 = shortMsg.getData1();
+      d2 = shortMsg.getData2();
 
       System.out.println("DEBUG cmd " + cmd + " | note: " + d1 + " | velocity: " + d2);
     }
