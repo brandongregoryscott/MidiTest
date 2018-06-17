@@ -1,17 +1,3 @@
-import javax.sound.midi.*;
-import java.util.*;
-
-// Objects for interacting with a MIDI device
-MidiDevice.Info[] midiDeviceInfo = null;
-MidiDevice device = null;
-Transmitter keyboard = null;
-MidiReceiver output = null;
-
-// Constant to hold the device number for the MIDI device
-final static int MIDI_DEVICE_NUMBER = 3;
-
-int CMD = 0, NOTE = 0, VELOCITY = 0;
-
 public void setup() {
   // Create the canvas
   size(450, 400);
