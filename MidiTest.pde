@@ -10,11 +10,11 @@ public void setup() {
   }
 
   try {
-    output = new MidiReceiver();
+    receiver = new MidiReceiver();
     device = MidiSystem.getMidiDevice(midiDeviceInfo[MIDI_DEVICE_NUMBER]);
     device.open();
-    keyboard = device.getTransmitter();
-    keyboard.setReceiver(output);
+    transmitter = device.getTransmitter();
+    transmitter.setReceiver(receiver);
   } 
   catch(MidiUnavailableException ex) {
     System.err.println("MIDI UNAVAILABLE");

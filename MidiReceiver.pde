@@ -4,8 +4,8 @@ import java.util.*;
 // Objects for interacting with a MIDI device
 MidiDevice.Info[] midiDeviceInfo = null;
 MidiDevice device = null;
-Transmitter keyboard = null;
-MidiReceiver output = null;
+Transmitter transmitter = null;
+MidiReceiver receiver = null;
 
 // Constant to hold the device number for the MIDI device
 final static int MIDI_DEVICE_NUMBER = 3;
