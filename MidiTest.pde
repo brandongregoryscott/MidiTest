@@ -7,14 +7,10 @@ MidiDevice device = null;
 Transmitter keyboard = null;
 MidiReceiver output = null;
 
-// Constant to hold the device number for the keyboard
-final static int KEYBOARD_DEVICE_NUMBER = 1;
+// Constant to hold the device number for the MIDI device
+final static int MIDI_DEVICE_NUMBER = 3;
 
-// Boolean array to hold currently held down keys
-boolean[] keyDown = new boolean[222];
-boolean[] midiKeyDown = new boolean[120];
-int[] midiKeyWeight = new int[120];
-int cmd = 0, d1 = 0, d2 = 0;
+int CMD = 0, NOTE = 0, VELOCITY = 0;
 
 public void setup() {
   // Create the canvas
@@ -29,7 +25,7 @@ public void setup() {
 
   try {
     output = new MidiReceiver();
-    device = MidiSystem.getMidiDevice(midiDeviceInfo[KEYBOARD_DEVICE_NUMBER]);
+    device = MidiSystem.getMidiDevice(midiDeviceInfo[MIDI_DEVICE_NUMBER]);
     device.open();
     keyboard = device.getTransmitter();
     keyboard.setReceiver(output);
@@ -43,7 +39,7 @@ public void draw() {
   background(0);
   fill(255);
   textSize(75);
-  text("cmd:" + cmd, 10, 100);
-  text("note:" + d1, 10, 200);
-  text("velocity:" + d2, 10, 300);
+  text("cmd:" + CMD, 10, 100);
+  text("note:" + NOTE, 10, 200);
+  text("velocity:" + VELOCITY, 10, 300);
 }
